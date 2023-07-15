@@ -1,0 +1,58 @@
+<nav class="colorlib-nav" role="navigation">
+    <div class="top-menu">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-7 col-md-9">
+            <div id="colorlib-logo"><a routerLink="/">Footwear</a></div>
+          </div>
+          <div class="col-sm-5 col-md-3">
+                <form action="#" class="search-wrap">
+                   <div class="form-group">
+                      <input type="search" class="form-control search" placeholder="Search">
+                      <button class="btn btn-primary submit-search text-center" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><style>svg{fill:#1a4d44}</style><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                      </button>
+                   </div>
+                </form>
+             </div>
+           </div>
+        <div class="row">
+          <div class="col-sm-12 text-left menu-1">
+            <ul>
+              <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+              <li *ngFor="let category of categories;" routerLinkActive="active"><a routerLink="/products/{{ category._id }}">{{ category.name }}</a></li>
+              <li routerLinkActive="active"><a routerLink="/about">About</a></li>
+              <li routerLinkActive="active"><a routerLink="/contact">Contact</a></li>
+              <li *ngIf="adminlogggedin" routerLinkActive="active"><a routerLink="/admin/dashboard">Admin</a></li>
+              <li class="cart"><a routerLink="/cart"><i class="icon-shopping-cart"></i> Cart [<span id="spnCount">{{ cartcount }}</span>]</a></li>
+              <li *ngIf="userloggedin" routerLinkActive="active" class="active"><a routerLink="/user"> Hello {{ username }}</a></li>
+              <li *ngIf="userloggedin" routerLinkActive="active" class="active"><a style="cursor: pointer;" (click)="logout()"> Logout</a></li>
+              <li *ngIf="!userloggedin" routerLinkActive="active" class="active"><a routerLink="/login"><i class="icon-shopping-cart"></i> User Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sale">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 offset-sm-2 text-center">
+            <div class="row">
+              <div class="owl-carousel2">
+                <div class="item">
+                  <div class="col">
+                    <h3><a href="#">25% off (Almost) Everything! Use Code: Summer Sale</a></h3>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col">
+                    <h3><a href="#">Our biggest sale yet 50% off all sneakers</a></h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>

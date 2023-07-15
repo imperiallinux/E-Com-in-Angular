@@ -1,0 +1,37 @@
+<div id="divPrint" class="row  table-bordered" *ngIf="order">
+    <div class="col-lg-12">
+      <h1>Order : {{ order.orderdate | date:"dd/MM/yyyy" }} - {{ order.billamount | currency:"EUR" }}</h1>
+      <h2>{{ name }}</h2>
+      <h3>Shipping Address</h3>
+      <h4>{{ order.address + ", " + order.city + ", " + order.state + "-" + order.pincode }}</h4>
+    </div>
+    <div class="col-lg-12">
+      <div class="table-scrollable">
+        <table class="table table-bordered table-stripped">
+          <tr>
+            <th>Number</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          <tr *ngFor="let product of order.products; let i = index;">
+            <td>{{ (i + 1) }}</td>
+            <td>
+              {{ product.name }}
+            </td>
+            <td>
+              {{ product.price | currency:"EUR" }}
+            </td>
+            <td>
+              {{ product.quantity }}
+            </td>
+            <td>
+              {{ product.total | currency:"EUR" }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-warning btn-sm" (click)="printDiv()">Print</button>
